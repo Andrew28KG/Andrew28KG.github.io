@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew's IT Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(120deg, #232526, #414345);
+      color: #f4f4f4;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light-mode {
+      background: linear-gradient(120deg, #f4f4f4, #e0e0e0);
+      color: #232526;
+    }
+    header {
+      background: #232526;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    body.light-mode header {
+      background: #f4f4f4;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: #00e6d0;
+    }
+    body.light-mode header h1 {
+      color: #232526;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #b2bec3;
+      margin: 0.5rem 0 0 0;
+      transition: color 0.3s;
+    }
+    body.light-mode header p {
+      color: #232526;
+    }
+    .opening {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(120deg, #232526, #414345);
+      transition: background 0.3s;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body.light-mode .opening {
+      background: linear-gradient(120deg, #f4f4f4, #e0e0e0);
+    }
+    .opening img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00e6d0;
+      margin-bottom: 2rem;
+      transition: border 0.3s;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    body.light-mode .opening img {
+      border: 4px solid #232526;
+    }
+    .opening h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: #00e6d0;
+      transition: color 0.3s;
+    }
+    body.light-mode .opening h1 {
+      color: #232526;
+    }
+    .opening p {
+      font-size: 1.5rem;
+      color: #b2bec3;
+      margin: 1rem 0 2rem 0;
+      transition: color 0.3s;
+    }
+    body.light-mode .opening p {
+      color: #232526;
+    }
+    .opening button {
+      background: #00e6d0;
+      color: #232526;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    body.light-mode .opening button {
+      background: #232526;
+      color: #f4f4f4;
+    }
+    .opening button:hover {
+      background: #00b3a0;
+    }
+    body.light-mode .opening button:hover {
+      background: #414345;
+    }
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: rgba(34, 40, 49, 0.95);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      transition: background 0.3s;
+    }
+    body.light-mode section {
+      background: rgba(244, 244, 244, 0.95);
+    }
+    h2 {
+      color: #00e6d0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      margin-top: 0;
+      transition: color 0.3s;
+    }
+    body.light-mode h2 {
+      color: #232526;
+    }
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .about img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00e6d0;
+      background: #232526;
+      transition: border 0.3s;
+    }
+    body.light-mode .about img {
+      border: 4px solid #232526;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .project-card {
+      background: #232526;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+      animation: slideIn 0.5s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    body.light-mode .project-card {
+      background: #f4f4f4;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(0,230,208,0.15);
+    }
+    .project-card img {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #414345;
+    }
+    /* Larger images for Story Website project */
+    .project-card.story-website img {
+      max-width: 350px;
+      height: 220px;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0 0 0;
+    }
+    .skill {
+      background: #00e6d0;
+      color: #232526;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(0,230,208,0.08);
+      transition: background 0.3s;
+    }
+    body.light-mode .skill {
+      background: #232526;
+      color: #f4f4f4;
+    }
+    .contact {
+      text-align: center;
+    }
+    .contact a {
+      color: #00e6d0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin: 0 0.5rem;
+      transition: color 0.2s;
+    }
+    body.light-mode .contact a {
+      color: #232526;
+    }
+    .contact a:hover {
+      color: #fff;
+    }
+    body.light-mode .contact a:hover {
+      color: #00e6d0;
+    }
+    @media (max-width: 600px) {
+      .about {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      section {
+        padding: 1.2rem 0.5rem;
+      }
+      .opening h1 {
+        font-size: 2rem;
+      }
+      .opening p {
+        font-size: 1rem;
+      }
+      .opening button {
+        font-size: 1rem;
+      }
+      .project-card img {
+        max-width: 100%;
+        height: auto;
+      }
+      .project-card.story-website img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00e6d0;
+      color: #232526;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    body.light-mode .theme-toggle {
+      background: #232526;
+      color: #f4f4f4;
+    }
+    .slideshow {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+    .prev:hover, .next:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+  <div class="opening">
+    <img src="images/Profile.png" alt="Profile Photo">
+    <h1>Andrew Kurniawan Gianto</h1>
+    <p>Informatics Student | Aspiring Full-Stack Developer | Data Science & Mobile App Dev Enthusiast</p>
+    <button onclick="scrollToContent()">Explore My Work</button>
+  </div>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about">
+        <img src="images/Profile.png" alt="Profile Photo">
+        <div class="about-text">
+          <p>Hello! I'm <b>Andrew Kurniawan Gianto</b>, a passionate Informatics student from Pradita University, currently in the 3rd year. I focus on building impactful digital solutions through full-stack development, data science, and IoT integration. With a strong foundation in Python, Flutter, and web technologies like HTML, CSS, and JavaScript, I am dedicated to continuous learning and delivering user-centered designs and efficient systems.</p>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects" style="display: flex; flex-direction: column; gap: 2rem;">
+        <div class="project-card">
+          <div class="slideshow">
+            <img src="images/WeatherAnalysis1.png" alt="Weather Analysis in Mumbai" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <img src="images/WeatherAnalysis2.png" alt="Weather Analysis in Mumbai" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <img src="images/WeatherAnalysis3.png" alt="Weather Analysis in Mumbai" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <button class="prev" onclick="changeSlide(-1, 0)">❮</button>
+            <button class="next" onclick="changeSlide(1, 0)">❯</button>
+          </div>
+          <h3>Weather Analysis in Mumbai</h3>
+          <p>Analyzed historical weather data (2009–2020) using Python to identify trends and forecast future conditions. Built visualizations and predictive models to evaluate climate behavior in tropical environments.</p>
+        </div>
+        <div class="project-card">
+          <div class="slideshow">
+            <img src="images/Tukang1.png" alt="MyTukang (UI/UX Design)" class="slide" style="width: 100%; max-width: 200px; height: auto;">
+            <img src="images/Tukang2.png" alt="MyTukang (UI/UX Design)" class="slide" style="width: 100%; max-width: 200px; height: auto;">
+            <img src="images/Tukang3.png" alt="MyTukang (UI/UX Design)" class="slide" style="width: 100%; max-width: 200px; height: auto;">
+            <button class="prev" onclick="changeSlide(-1, 1)">❮</button>
+            <button class="next" onclick="changeSlide(1, 1)">❯</button>
+          </div>
+          <h3>MyTukang (UI/UX Design)</h3>
+          <p>Designed a mobile app interface in Figma to connect users with handymen for home services. Focused on simplicity, trust, and task tracking.</p>
+        </div>
+        <div class="project-card">
+          <div class="slideshow">
+            <img src="images/canngopi1.png" alt="Canngopi Website" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <img src="images/canngopi2.png" alt="Canngopi Website" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <button class="prev" onclick="changeSlide(-1, 2)">❮</button>
+            <button class="next" onclick="changeSlide(1, 2)">❯</button>
+          </div>
+          <h3>Canngopi Website</h3>
+          <p>Built a dynamic PHP-based website for a local coffee shop with menu management, discounts, categories, and backend admin functionality.</p>
+        </div>
+        <div class="project-card">
+          <div class="slideshow">
+            <img src="images/PillDispenser1.png" alt="Automatic Pill Dispenser (IoT)" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <img src="images/PillDispenser3.png" alt="Automatic Pill Dispenser (IoT)" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <img src="images/PillDispenser4.png" alt="Automatic Pill Dispenser (IoT)" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <button class="prev" onclick="changeSlide(-1, 3)">❮</button>
+            <button class="next" onclick="changeSlide(1, 3)">❯</button>
+          </div>
+          <h3>Automatic Pill Dispenser (IoT)</h3>
+          <p>Created a prototype for an automated pill dispenser using Arduino to help users take medication on time with alert systems.</p>
+        </div>
+        <div class="project-card story-website">
+          <div class="slideshow">
+            <img src="images/Story1.png" alt="Story Website" class="slide" style="width: 100%;" >
+            <img src="images/Story2.png" alt="Story Website" class="slide" style="width: 100%;" >
+            <img src="images/Story3.png" alt="Story Website" class="slide" style="width: 100%;" >
+            <button class="prev" onclick="changeSlide(-1, 4)">❮</button>
+            <button class="next" onclick="changeSlide(1, 4)">❯</button>
+          </div>
+          <h3>Story Website</h3>
+          <p>An interactive and emotional storytelling web project built with HTML, CSS, and JS. Hosted on Vercel, featuring a playlist and smooth storytelling visuals about friendship and love.</p>
+        </div>
+        <div class="project-card">
+          <div class="slideshow">
+            <img src="images/TaskHive1.png" alt="TaskHive" class="slide" style="width: 100%; max-width: 200px; height: auto;">
+            <img src="images/TaskHive2.png" alt="TaskHive" class="slide" style="width: 100%; max-width: 200px; height: auto;">
+            <img src="images/TaskHive3.png" alt="TaskHive" class="slide" style="width: 100%; max-width: 200px; height: auto;">
+            <img src="images/TaskHive4.png" alt="TaskHive" class="slide" style="width: 100%; max-width: 200px; height: auto;">
+            <button class="prev" onclick="changeSlide(-1, 5)">❮</button>
+            <button class="next" onclick="changeSlide(1, 5)">❯</button>
+          </div>
+          <h3>TaskHive</h3>
+          <p>Flutter-based mobile app to manage personal and team-based to-do lists and project tracking, featuring CRUD operations and Firebase integration.</p>
+        </div>
+        <div class="project-card">
+          <div class="slideshow">
+            <img src="images/Pusat_Lomba.png" alt="Pusat Lomba Pradita Website" class="slide" style="width: 100%; max-width: 400px; height: auto;">
+            <button class="prev" onclick="changeSlide(-1, 6)">❮</button>
+            <button class="next" onclick="changeSlide(1, 6)">❯</button>
+          </div>
+          <h3>Pusat Lomba Pradita Website</h3>
+          <p>Developed a competition center website to help students register and participate in university competitions. Built with HTML, CSS, JavaScript, and PHP.</p>
+        </div>
+      </div>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill">
+          <img src="images/flutterlogo.png" alt="Flutter" width="20" height="20" style="vertical-align: middle; margin-right: 5px;">
+          Full-Stack Web & Mobile Development (Flutter, HTML/CSS/JS, PHP, Firebase)
+        </div>
+        <div class="skill">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" width="20" height="20" style="vertical-align: middle; margin-right: 5px;">
+          Data Science & Data Analysis (Python, Pandas, Matplotlib, Seaborn)
+        </div>
+        <div class="skill">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" width="20" height="20" style="vertical-align: middle; margin-right: 5px;">
+          UI/UX Design (Figma Prototyping, User Flow, Responsive Design)
+        </div>
+        <div class="skill">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="MySQL" width="20" height="20" style="vertical-align: middle; margin-right: 5px;">
+          Backend Systems (MySQL, PHP, Firebase integration)
+        </div>
+        <div class="skill">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git" width="20" height="20" style="vertical-align: middle; margin-right: 5px;">
+          Project Documentation & Version Control (Git/GitHub)
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> <a href="mailto:andrewkgianto@gmail.com">andrewkgianto@gmail.com</a></p>
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> <a href="https://www.linkedin.com/in/endru101/" target="_blank">@endru101</a></p>
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Phone_icon.png" alt="Phone" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> <a href="tel:+1234567890">+62 896-5991-2775</a></p>
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="20" height="20" style="vertical-align: middle; margin-right: 5px;"> <a href="https://github.com/Andrew28KG" target="_blank">@Andrew28KG</a></p>
+      </div>
+    </section>
+  </main>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+    function scrollToContent() {
+      document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+    }
+    let slideIndexes = [0, 0, 0, 0, 0, 0, 0];
+    function changeSlide(direction, slideshowIndex) {
+      const slides = document.querySelectorAll('.slideshow')[slideshowIndex].querySelectorAll('.slide');
+      slideIndexes[slideshowIndex] = (slideIndexes[slideshowIndex] + direction + slides.length) % slides.length;
+      slides.forEach((slide, index) => {
+        slide.style.display = index === slideIndexes[slideshowIndex] ? 'block' : 'none';
+      });
+    }
+    window.onload = function() {
+      document.querySelectorAll('.slideshow').forEach((slideshow, index) => {
+        const slides = slideshow.querySelectorAll('.slide');
+        slides.forEach((slide, i) => {
+          slide.style.display = i === 0 ? 'block' : 'none';
+        });
+      });
+    };
+  </script>
+</body>
+</html> 
